@@ -35,6 +35,8 @@
     tabbarVc.viewControllers = @[vc1 , vc2 , vc3 , vc4];
     
     [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 
