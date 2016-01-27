@@ -7,14 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "HMDiscoverViewController.h"
-#import "HMProfileViewController.h"
-#import "HMMessageViewController.h"
-#import "HWHomeViewController.h"
-
-#define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0  alpha:1.0];
-#define HWColor(r , g , b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
-
+#import "HWMainViewController.h"
 
 @interface AppDelegate ()
 
@@ -28,19 +21,9 @@
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    UITabBarController * tabbarVc = [[UITabBarController alloc] init];
-    self.window.rootViewController = tabbarVc;
+    self.window.rootViewController = [[HWMainViewController alloc] init];
     
-    HWHomeViewController *home = [[HWHomeViewController alloc] init];
-    [self addChildVC:home title:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
-    HMMessageViewController *message = [[HMMessageViewController alloc] init];
-    [self addChildVC:message title:@"消息" image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
-    HMDiscoverViewController *discover = [[HMDiscoverViewController alloc] init];
-    [self addChildVC:discover title:@"发现" image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
-    HMProfileViewController *profile = [[HMProfileViewController alloc] init];
-    [self addChildVC:profile title:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
-
-    tabbarVc.viewControllers = @[home , message , discover , profile];
+    
     
     [self.window makeKeyAndVisible];
     
@@ -48,21 +31,7 @@
     return YES;
 }
 
-- (UIViewController *) addChildVC:(UIViewController*)childVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString*)selectedImage{
-    childVc.tabBarItem.title = title;
-    childVc.tabBarItem.image = [UIImage imageNamed:image];
-    childVc.tabBarItem.selectedImage  = [[UIImage imageNamed:selectedImage]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    NSMutableDictionary *textattrs = [NSMutableDictionary dictionary];
-    textattrs[NSForegroundColorAttributeName] = HWColor(123, 123, 123);
-    
-    NSMutableDictionary *selecttextattrs = [NSMutableDictionary dictionary];
-    selecttextattrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    
-    [childVc.tabBarItem setTitleTextAttributes:textattrs forState:UIControlStateNormal];
-    [childVc.tabBarItem setTitleTextAttributes:selecttextattrs forState:UIControlStateSelected];
-    childVc.view.backgroundColor = RandomColor;
-    return childVc;
-}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
