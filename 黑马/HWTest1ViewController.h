@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HWTest1ViewController : UITabBarController
+@interface HWTest1ViewController : UIViewController
 
 @end
