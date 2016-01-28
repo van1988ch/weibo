@@ -11,6 +11,7 @@
 #import "HMProfileViewController.h"
 #import "HMMessageViewController.h"
 #import "HWHomeViewController.h"
+#import "HWNavigationViewController.h"
 
 
 #define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0  alpha:1.0];
@@ -54,7 +55,7 @@
     [childVc.tabBarItem setTitleTextAttributes:selecttextattrs forState:UIControlStateSelected];
     childVc.view.backgroundColor = RandomColor;
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
+    HWNavigationViewController *nav = [[HWNavigationViewController alloc] initWithRootViewController:childVc];
     [self addChildViewController:nav];
 }
 

@@ -53,6 +53,7 @@
     HWTest1ViewController *test1 = [[HWTest1ViewController alloc] init];
     test1.title = @"测试1控制器";
     test1.hidesBottomBarWhenPushed = YES;
+    NSLog(@"%@" , self.navigationController);
     [self.navigationController pushViewController:test1 animated:YES];
 }
 
