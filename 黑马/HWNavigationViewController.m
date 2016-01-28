@@ -8,12 +8,28 @@
 
 #import "HWNavigationViewController.h"
 #import "UIView+UIViewExtentsion.h"
+#import "HWItemTool.h"
 
 @interface HWNavigationViewController ()
 
 @end
 
 @implementation HWNavigationViewController
+
++ (void)initialize
+{
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    textAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+    [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
+    
+    NSMutableDictionary *distextAttrs = [NSMutableDictionary dictionary];
+    distextAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    distextAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+    [item setTitleTextAttributes:distextAttrs forState:UIControlStateDisabled];
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,32 +44,19 @@
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    [super pushViewController:viewController animated:animated];
     
     NSLog(@"%lu %@" , (unsigned long)self.viewControllers.count , viewController);
     
-    if(self.viewControllers.count>1)
+    if(self.viewControllers.count>0)
     {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-        [button setBackgroundImage:[UIImage imageNamed:@"navigationbar_back"] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"navigationbar_back_highlighted"] forState:UIControlStateHighlighted];
-
-        button.size = button.currentBackgroundImage.size;
-
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-
-
-        UIButton *more = [UIButton buttonWithType:UIButtonTypeCustom];
-        [more addTarget:self action:@selector(more) forControlEvents:UIControlEventTouchUpInside];
-        [more setBackgroundImage:[UIImage imageNamed:@"navigationbar_more"] forState:UIControlStateNormal];
-        [more setBackgroundImage:[UIImage imageNamed:@"navigationbar_more_highlighted"] forState:UIControlStateHighlighted];
-
-        more.size = more.currentBackgroundImage.size;
-        viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:more];
+        viewController.hidesBottomBarWhenPushed = YES;
+        
+        viewController.navigationItem.leftBarButtonItem =  [HWItemTool itemWithTarget:self action:@selector(back) image:@"navigationbar_back" highImage:@"navigationbar_back_highlighted"];
+        viewController.navigationItem.rightBarButtonItem =  [HWItemTool itemWithTarget:self action:@selector(more) image:@"navigationbar_more" highImage:@"navigationbar_more_highlighted"];
     }
-    
+    [super pushViewController:viewController animated:animated];
 }
+
 
 - (void)back
 {
