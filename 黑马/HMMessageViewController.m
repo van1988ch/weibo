@@ -7,7 +7,7 @@
 //
 
 #import "HMMessageViewController.h"
-#import "HWTest2ViewController.h"
+#import "HWTest1ViewController.h"
 
 @interface HMMessageViewController ()
 
@@ -50,7 +50,7 @@
 
 #pragma mark - 代理方法
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    HWTest2ViewController *test1 = [[HWTest2ViewController alloc] init];
+    HWTest1ViewController *test1 = [[HWTest1ViewController alloc] init];
     test1.title = @"测试1控制器";
     test1.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:test1 animated:YES];
