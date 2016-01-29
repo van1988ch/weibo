@@ -53,7 +53,7 @@
     
     [childVc.tabBarItem setTitleTextAttributes:textattrs forState:UIControlStateNormal];
     [childVc.tabBarItem setTitleTextAttributes:selecttextattrs forState:UIControlStateSelected];
-    childVc.view.backgroundColor = RandomColor;
+    //childVc.view.backgroundColor = RandomColor;
     
     HWNavigationViewController *nav = [[HWNavigationViewController alloc] initWithRootViewController:childVc];
     [self addChildViewController:nav];
