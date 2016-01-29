@@ -7,6 +7,8 @@
 //
 
 #import "HMDiscoverViewController.h"
+#import "HWSeachBar.h"
+#import "UIView+UIViewExtentsion.h"
 
 @interface HMDiscoverViewController ()
 
@@ -16,12 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    HWSeachBar *searchBar = [HWSeachBar searchBar];
+    searchBar.width = 300;
+    searchBar.height = 35;
+    self.navigationItem.titleView = searchBar;
 }
 
 - (void)didReceiveMemoryWarning {
