@@ -24,8 +24,6 @@
     if (!_containerView) {
         UIImageView* containerView = [[UIImageView alloc] init];
         containerView.image = [UIImage imageNamed:@"popover_background"];
-        containerView.width = 217;
-        containerView.height = 217;
         containerView.userInteractionEnabled = YES;
         [self addSubview:containerView];
         _containerView = containerView;
@@ -39,9 +37,16 @@
     _content = content;
     content.x = 10;
     content.y = 15;
-    content.width =self.containerView.width - 2*content.x;;
     self.containerView.height = CGRectGetMaxY(content.frame) + 10;
+    //content.width =self.containerView.width - 2*content.x;;
+    self.containerView.width = CGRectGetMaxX(content.frame) + 10;
     [self.containerView addSubview:content];
+}
+
+-(void)setContentController:(UIViewController *)contentController
+{
+    _contentController = contentController;
+    self.content = _contentController.view;
 }
 
 -(id) initWithFrame:(CGRect)frame

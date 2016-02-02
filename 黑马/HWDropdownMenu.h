@@ -16,5 +16,5 @@
 
 
 @property (nonatomic , strong) UIView *content;
-
+@property (nonatomic , strong) UIViewController *contentController;
 @end

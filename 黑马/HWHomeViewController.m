@@ -46,7 +46,10 @@
 
 - (void)titleClick:(UIButton*)titleButton {
     HWDropdownMenu *dropMenu = [HWDropdownMenu menu];
-    dropMenu.content = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    UITableViewController *tableview= [[UITableViewController alloc] init];
+    tableview.view.height = 44*3;
+    tableview.view.width = 200;
+    dropMenu.contentController =tableview;
     [dropMenu showFrom:titleButton];
 }
 
