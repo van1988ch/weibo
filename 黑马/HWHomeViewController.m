@@ -8,6 +8,12 @@
 
 #import "HWHomeViewController.h"
 #import "HWItemTool.h"
+#include "UIView+UIViewExtentsion.h"
+#import "HWDropdownMenu.h"
+
+#define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0  alpha:1.0];
+#define HWColor(r , g , b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
 
 @interface HWHomeViewController ()
 
@@ -20,6 +26,28 @@
     
     self.navigationItem.leftBarButtonItem =  [HWItemTool itemWithTarget:self action:@selector(friendSeacher) image:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted"];
     self.navigationItem.rightBarButtonItem =  [HWItemTool itemWithTarget:self action:@selector(friendSeacher) image:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted"];
+   // UIButton *titleButton = [[UIButton alloc] init];
+    UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    titleButton.width = 150;
+    titleButton.height = 30;
+    //titleButton.backgroundColor= RandomColor;
+    [titleButton setTitle:@"首页" forState:UIControlStateNormal];
+    [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    titleButton.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    //titleButton.imageView.backgroundColor =RandomColor;
+    //titleButton.titleLabel.backgroundColor = RandomColor;
+    titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, 70, 0, 0);
+    titleButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
+    [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = titleButton;
+    
+}
+
+- (void)titleClick:(UIButton*)titleButton {
+    HWDropdownMenu *dropMenu = [HWDropdownMenu menu];
+    dropMenu.content = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    [dropMenu showFrom:titleButton];
 }
 
 - (void)friendSeacher {
