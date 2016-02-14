@@ -73,7 +73,7 @@
     HWNavigationViewController *nav = [[HWNavigationViewController alloc] initWithRootViewController:childVc];
     [self addChildViewController:nav];
 }
-#warning daili
+#warning daili hello
 - (void)tabBarDidClickPlusButton:(HWTabBar *)tabBar
 {
     UIViewController *vc = [[UIViewController alloc] init];
