@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HWMainViewController.h"
+#import "HWNewFeatureViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,8 +22,8 @@
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    self.window.rootViewController = [[HWMainViewController alloc] init];
-    
+    //self.window.rootViewController = [[HWMainViewController alloc] init];
+    self.window.rootViewController = [[HWNewFeatureViewController alloc] init];
     
     
     [self.window makeKeyAndVisible];

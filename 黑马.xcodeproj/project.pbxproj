@@ -25,6 +25,7 @@
 		273CE6E91C5B302200816E3D /* HWSeachBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE6E81C5B302200816E3D /* HWSeachBar.m */; };
 		273CE6EC1C60498300816E3D /* HWDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE6EB1C60498300816E3D /* HWDropdownMenu.m */; };
 		273CE7121C705EAF00816E3D /* HWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE7111C705EAE00816E3D /* HWTabBar.m */; };
+		273CE7151C707BC600816E3D /* HWNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE7141C707BC600816E3D /* HWNewFeatureViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,8 @@
 		273CE6EB1C60498300816E3D /* HWDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDropdownMenu.m; sourceTree = "<group>"; };
 		273CE7101C705EAE00816E3D /* HWTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTabBar.h; sourceTree = "<group>"; };
 		273CE7111C705EAE00816E3D /* HWTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTabBar.m; sourceTree = "<group>"; };
+		273CE7131C707BC600816E3D /* HWNewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWNewFeatureViewController.h; sourceTree = "<group>"; };
+		273CE7141C707BC600816E3D /* HWNewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWNewFeatureViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				273CE6EB1C60498300816E3D /* HWDropdownMenu.m */,
 				273CE7101C705EAE00816E3D /* HWTabBar.h */,
 				273CE7111C705EAE00816E3D /* HWTabBar.m */,
+				273CE7131C707BC600816E3D /* HWNewFeatureViewController.h */,
+				273CE7141C707BC600816E3D /* HWNewFeatureViewController.m */,
 			);
 			path = "黑马";
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				273CE6EC1C60498300816E3D /* HWDropdownMenu.m in Sources */,
 				27381A751C59B96300662A9A /* HWTest2ViewController.m in Sources */,
 				27381A5A1C58A8F400662A9A /* main.m in Sources */,
+				273CE7151C707BC600816E3D /* HWNewFeatureViewController.m in Sources */,
 				273CE7121C705EAF00816E3D /* HWTabBar.m in Sources */,
 				273CE6E21C5A490D00816E3D /* HWNavigationViewController.m in Sources */,
 				27381A591C58A8F400662A9A /* AppDelegate.m in Sources */,
