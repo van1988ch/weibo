@@ -10,6 +10,21 @@
 		2738199A1C5870E600662A9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 273819991C5870E600662A9A /* Assets.xcassets */; };
 		27381A591C58A8F400662A9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27381A571C58A8F400662A9A /* AppDelegate.m */; };
 		27381A5A1C58A8F400662A9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27381A581C58A8F400662A9A /* main.m */; };
+		27381A5D1C590BDC00662A9A /* HWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27381A5C1C590BDC00662A9A /* HWHomeViewController.m */; };
+		27381A601C590C1000662A9A /* HMMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27381A5F1C590C1000662A9A /* HMMessageViewController.m */; };
+		27381A661C590C7400662A9A /* HMDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27381A651C590C7400662A9A /* HMDiscoverViewController.m */; };
+		27381A691C590CA400662A9A /* HMProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27381A681C590CA400662A9A /* HMProfileViewController.m */; };
+		27381A6C1C5911F000662A9A /* HWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27381A6B1C5911F000662A9A /* HWMainViewController.m */; };
+		27381A751C59B96300662A9A /* HWTest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27381A731C59B96300662A9A /* HWTest2ViewController.m */; };
+		27381A761C59B96300662A9A /* HWTest2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27381A741C59B96300662A9A /* HWTest2ViewController.xib */; };
+		27381A7A1C59C0DC00662A9A /* HWTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27381A781C59C0DC00662A9A /* HWTest1ViewController.m */; };
+		27381A7B1C59C0DC00662A9A /* HWTest1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27381A791C59C0DC00662A9A /* HWTest1ViewController.xib */; };
+		273CE6DF1C59F73000816E3D /* UIView+UIViewExtentsion.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE6DE1C59F73000816E3D /* UIView+UIViewExtentsion.m */; };
+		273CE6E21C5A490D00816E3D /* HWNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE6E11C5A490D00816E3D /* HWNavigationViewController.m */; };
+		273CE6E51C5A591700816E3D /* HWItemTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE6E41C5A591700816E3D /* HWItemTool.m */; };
+		273CE6E91C5B302200816E3D /* HWSeachBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE6E81C5B302200816E3D /* HWSeachBar.m */; };
+		273CE6EC1C60498300816E3D /* HWDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE6EB1C60498300816E3D /* HWDropdownMenu.m */; };
+		273CE7121C705EAF00816E3D /* HWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE7111C705EAE00816E3D /* HWTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +34,35 @@
 		27381A561C58A8F400662A9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		27381A571C58A8F400662A9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		27381A581C58A8F400662A9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		27381A5B1C590BDC00662A9A /* HWHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomeViewController.h; sourceTree = "<group>"; };
+		27381A5C1C590BDC00662A9A /* HWHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomeViewController.m; sourceTree = "<group>"; };
+		27381A5E1C590C1000662A9A /* HMMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMMessageViewController.h; sourceTree = "<group>"; };
+		27381A5F1C590C1000662A9A /* HMMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMMessageViewController.m; sourceTree = "<group>"; };
+		27381A641C590C7400662A9A /* HMDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMDiscoverViewController.h; sourceTree = "<group>"; };
+		27381A651C590C7400662A9A /* HMDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDiscoverViewController.m; sourceTree = "<group>"; };
+		27381A671C590CA400662A9A /* HMProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMProfileViewController.h; sourceTree = "<group>"; };
+		27381A681C590CA400662A9A /* HMProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMProfileViewController.m; sourceTree = "<group>"; };
+		27381A6A1C5911F000662A9A /* HWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWMainViewController.h; sourceTree = "<group>"; };
+		27381A6B1C5911F000662A9A /* HWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWMainViewController.m; sourceTree = "<group>"; };
+		27381A721C59B96300662A9A /* HWTest2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTest2ViewController.h; sourceTree = "<group>"; };
+		27381A731C59B96300662A9A /* HWTest2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTest2ViewController.m; sourceTree = "<group>"; };
+		27381A741C59B96300662A9A /* HWTest2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWTest2ViewController.xib; sourceTree = "<group>"; };
+		27381A771C59C0DC00662A9A /* HWTest1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTest1ViewController.h; sourceTree = "<group>"; };
+		27381A781C59C0DC00662A9A /* HWTest1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTest1ViewController.m; sourceTree = "<group>"; };
+		27381A791C59C0DC00662A9A /* HWTest1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWTest1ViewController.xib; sourceTree = "<group>"; };
+		273CE6DD1C59F73000816E3D /* UIView+UIViewExtentsion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIViewExtentsion.h"; sourceTree = "<group>"; };
+		273CE6DE1C59F73000816E3D /* UIView+UIViewExtentsion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIViewExtentsion.m"; sourceTree = "<group>"; };
+		273CE6E01C5A490D00816E3D /* HWNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWNavigationViewController.h; sourceTree = "<group>"; };
+		273CE6E11C5A490D00816E3D /* HWNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWNavigationViewController.m; sourceTree = "<group>"; };
+		273CE6E31C5A591700816E3D /* HWItemTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWItemTool.h; sourceTree = "<group>"; };
+		273CE6E41C5A591700816E3D /* HWItemTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWItemTool.m; sourceTree = "<group>"; };
+		273CE6E61C5B072200816E3D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		273CE6E71C5B302200816E3D /* HWSeachBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWSeachBar.h; sourceTree = "<group>"; };
+		273CE6E81C5B302200816E3D /* HWSeachBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWSeachBar.m; sourceTree = "<group>"; };
+		273CE6EA1C60498300816E3D /* HWDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDropdownMenu.h; sourceTree = "<group>"; };
+		273CE6EB1C60498300816E3D /* HWDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDropdownMenu.m; sourceTree = "<group>"; };
+		273CE7101C705EAE00816E3D /* HWTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTabBar.h; sourceTree = "<group>"; };
+		273CE7111C705EAE00816E3D /* HWTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,10 +96,39 @@
 			isa = PBXGroup;
 			children = (
 				27381A561C58A8F400662A9A /* AppDelegate.h */,
+				27381A641C590C7400662A9A /* HMDiscoverViewController.h */,
+				27381A651C590C7400662A9A /* HMDiscoverViewController.m */,
 				27381A571C58A8F400662A9A /* AppDelegate.m */,
 				27381A581C58A8F400662A9A /* main.m */,
 				273819991C5870E600662A9A /* Assets.xcassets */,
 				2738198D1C5870E500662A9A /* Supporting Files */,
+				27381A5B1C590BDC00662A9A /* HWHomeViewController.h */,
+				27381A5C1C590BDC00662A9A /* HWHomeViewController.m */,
+				27381A5E1C590C1000662A9A /* HMMessageViewController.h */,
+				27381A5F1C590C1000662A9A /* HMMessageViewController.m */,
+				27381A671C590CA400662A9A /* HMProfileViewController.h */,
+				27381A681C590CA400662A9A /* HMProfileViewController.m */,
+				27381A6A1C5911F000662A9A /* HWMainViewController.h */,
+				27381A6B1C5911F000662A9A /* HWMainViewController.m */,
+				27381A721C59B96300662A9A /* HWTest2ViewController.h */,
+				27381A731C59B96300662A9A /* HWTest2ViewController.m */,
+				27381A741C59B96300662A9A /* HWTest2ViewController.xib */,
+				27381A771C59C0DC00662A9A /* HWTest1ViewController.h */,
+				27381A781C59C0DC00662A9A /* HWTest1ViewController.m */,
+				27381A791C59C0DC00662A9A /* HWTest1ViewController.xib */,
+				273CE6DD1C59F73000816E3D /* UIView+UIViewExtentsion.h */,
+				273CE6DE1C59F73000816E3D /* UIView+UIViewExtentsion.m */,
+				273CE6E01C5A490D00816E3D /* HWNavigationViewController.h */,
+				273CE6E11C5A490D00816E3D /* HWNavigationViewController.m */,
+				273CE6E31C5A591700816E3D /* HWItemTool.h */,
+				273CE6E41C5A591700816E3D /* HWItemTool.m */,
+				273CE6E61C5B072200816E3D /* PrefixHeader.pch */,
+				273CE6E71C5B302200816E3D /* HWSeachBar.h */,
+				273CE6E81C5B302200816E3D /* HWSeachBar.m */,
+				273CE6EA1C60498300816E3D /* HWDropdownMenu.h */,
+				273CE6EB1C60498300816E3D /* HWDropdownMenu.m */,
+				273CE7101C705EAE00816E3D /* HWTabBar.h */,
+				273CE7111C705EAE00816E3D /* HWTabBar.m */,
 			);
 			path = "黑马";
 			sourceTree = "<group>";
@@ -125,7 +198,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27381A7B1C59C0DC00662A9A /* HWTest1ViewController.xib in Resources */,
 				2738199A1C5870E600662A9A /* Assets.xcassets in Resources */,
+				27381A761C59B96300662A9A /* HWTest2ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,8 +211,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27381A661C590C7400662A9A /* HMDiscoverViewController.m in Sources */,
+				27381A6C1C5911F000662A9A /* HWMainViewController.m in Sources */,
+				27381A7A1C59C0DC00662A9A /* HWTest1ViewController.m in Sources */,
+				27381A691C590CA400662A9A /* HMProfileViewController.m in Sources */,
+				27381A5D1C590BDC00662A9A /* HWHomeViewController.m in Sources */,
+				273CE6E91C5B302200816E3D /* HWSeachBar.m in Sources */,
+				27381A601C590C1000662A9A /* HMMessageViewController.m in Sources */,
+				273CE6DF1C59F73000816E3D /* UIView+UIViewExtentsion.m in Sources */,
+				273CE6EC1C60498300816E3D /* HWDropdownMenu.m in Sources */,
+				27381A751C59B96300662A9A /* HWTest2ViewController.m in Sources */,
 				27381A5A1C58A8F400662A9A /* main.m in Sources */,
+				273CE7121C705EAF00816E3D /* HWTabBar.m in Sources */,
+				273CE6E21C5A490D00816E3D /* HWNavigationViewController.m in Sources */,
 				27381A591C58A8F400662A9A /* AppDelegate.m in Sources */,
+				273CE6E51C5A591700816E3D /* HWItemTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +357,7 @@
 				273819A31C5870E600662A9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

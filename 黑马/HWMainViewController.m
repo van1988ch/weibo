@@ -12,12 +12,15 @@
 #import "HMMessageViewController.h"
 #import "HWHomeViewController.h"
 #import "HWNavigationViewController.h"
+#import "UIView+UIViewExtentsion.h"
+#import "HWTabBar.h"
 
 
 #define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0  alpha:1.0];
 #define HWColor(r , g , b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
-@interface HWMainViewController ()
+@interface HWMainViewController ()<HWTabBarDelegate>
+
 
 @end
 
@@ -34,11 +37,23 @@
     [self addChildVC:discover title:@"发现" image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
     HMProfileViewController *profile = [[HMProfileViewController alloc] init];
     [self addChildVC:profile title:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
+    
+    HWTabBar *tabBar = [[HWTabBar alloc] init];
+    tabBar.delegate = self;
+    [self setValue:tabBar forKeyPath:@"tabBar"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSLog(@"%@" , self.tabBar.subviews);
+    
 }
 
 - (void) addChildVC:(UIViewController*)childVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString*)selectedImage{
@@ -59,6 +74,12 @@
     [self addChildViewController:nav];
 }
 
+- (void)tabBarDidClickPlusButton:(HWTabBar *)tabBar
+{
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = [UIColor redColor];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 /*
 #pragma mark - Navigation
 
