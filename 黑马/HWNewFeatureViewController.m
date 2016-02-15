@@ -43,6 +43,10 @@
         NSString *name = [NSString stringWithFormat:@"new_feature_%d" , i+1];
         imageview.image = [UIImage imageNamed:name];
         [scrollview addSubview:imageview];
+        
+        if (i == HWNewFeatureCount - 1) {
+            [self setuplastImageView:imageview];
+        }
     }
     
     scrollview.contentSize = CGSizeMake(HWNewFeatureCount*scrollW , 0);
@@ -63,6 +67,39 @@
     [self.view addSubview:pagec];
     self.page =pagec;
     
+}
+
+- (void) setuplastImageView:(UIImageView *)imageView
+{
+    imageView.userInteractionEnabled = YES;//imageview 默认不能交互
+    UIButton *share = [[UIButton alloc] init];
+    [share setImage:[UIImage imageNamed:@"new_feature_share_false"] forState:UIControlStateNormal];
+    [share setImage:[UIImage imageNamed:@"new_feature_share_true"] forState:UIControlStateSelected];
+    
+    [share setTitle:@"分享给大家" forState:UIControlStateNormal];
+    share.titleLabel.font = [UIFont systemFontOfSize:15];
+    share.width = 100;
+    share.height = 30;
+    share.centerx = imageView.width*0.5;
+    share.centery = imageView.height *0.65;
+    [share setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [share addTarget:self action:@selector(shareClick:) forControlEvents:UIControlEventTouchUpInside];
+    [imageView addSubview:share];
+
+    
+    UIButton *startBtn = [[UIButton alloc] init];
+    [startBtn setBackgroundImage:[UIImage imageNamed:@"new_feature_finish_button"] forState:UIControlStateNormal];
+    [startBtn setBackgroundImage:[UIImage imageNamed:@"new_feature_finish_button_highlighted"] forState:UIControlStateHighlighted];
+    startBtn.size =startBtn.currentBackgroundImage.size;
+    startBtn.centerx = share.centerx;
+    startBtn.centery = imageView.height*0.75;
+    [startBtn setTitle:@"开始微博" forState:UIControlStateNormal];
+    [imageView addSubview:startBtn];
+}
+
+-(void) shareClick:(UIButton *)share
+{
+    share.selected = !share.isSelected;
 }
 
 - (void)didReceiveMemoryWarning {
