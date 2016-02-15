@@ -8,6 +8,7 @@
 
 #import "HWNewFeatureViewController.h"
 #import "UIView+UIViewExtentsion.h"
+#import "HWMainViewController.h"
 #define HWNewFeatureCount 4
 #define HWColor(r , g , b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
@@ -94,12 +95,19 @@
     startBtn.centerx = share.centerx;
     startBtn.centery = imageView.height*0.75;
     [startBtn setTitle:@"开始微博" forState:UIControlStateNormal];
+    [startBtn addTarget:self action:@selector(startClick) forControlEvents:UIControlEventTouchUpInside];
     [imageView addSubview:startBtn];
 }
 
 -(void) shareClick:(UIButton *)share
 {
     share.selected = !share.isSelected;
+}
+
+-(void) startClick
+{
+    UIWindow *windows = [UIApplication sharedApplication].keyWindow;
+    windows.rootViewController = [[HWMainViewController alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
