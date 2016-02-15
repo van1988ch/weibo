@@ -22,9 +22,20 @@
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    //self.window.rootViewController = [[HWMainViewController alloc] init];
-    self.window.rootViewController = [[HWNewFeatureViewController alloc] init];
+    //
+    NSString *key = @"CFBundleVersion";
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSString *currentVrsion = [NSBundle mainBundle].infoDictionary[key];
     
+    if ([currentVrsion isEqualToString:lastVersion]) {
+        self.window.rootViewController = self.window.rootViewController = [[HWMainViewController alloc] init];;
+    }
+    else
+    {
+        self.window.rootViewController = [[HWNewFeatureViewController alloc] init];
+        [[NSUserDefaults standardUserDefaults] setObject:currentVrsion forKey:key];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
     [self.window makeKeyAndVisible];
     
