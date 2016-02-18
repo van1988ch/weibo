@@ -36,6 +36,10 @@
 		273CE7471C75700D00816E3D /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE73C1C75700D00816E3D /* AFURLRequestSerialization.m */; };
 		273CE7481C75700D00816E3D /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE73E1C75700D00816E3D /* AFURLResponseSerialization.m */; };
 		273CE7491C75700D00816E3D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE7401C75700D00816E3D /* AFURLSessionManager.m */; };
+		273CE74E1C7619C200816E3D /* HWAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE74D1C7619C200816E3D /* HWAccount.m */; };
+		273CE7551C761ED200816E3D /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE7511C761ED200816E3D /* MBProgressHUD+MJ.m */; };
+		273CE7561C761ED200816E3D /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 273CE7521C761ED200816E3D /* MBProgressHUD.bundle */; };
+		273CE7571C761ED200816E3D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE7541C761ED200816E3D /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +101,13 @@
 		273CE73E1C75700D00816E3D /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		273CE73F1C75700D00816E3D /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		273CE7401C75700D00816E3D /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		273CE74C1C7619C200816E3D /* HWAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAccount.h; sourceTree = "<group>"; };
+		273CE74D1C7619C200816E3D /* HWAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAccount.m; sourceTree = "<group>"; };
+		273CE7501C761ED200816E3D /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
+		273CE7511C761ED200816E3D /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		273CE7521C761ED200816E3D /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		273CE7531C761ED200816E3D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		273CE7541C761ED200816E3D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +140,8 @@
 		2738198C1C5870E500662A9A /* 黑马 */ = {
 			isa = PBXGroup;
 			children = (
+				273CE74F1C761ED200816E3D /* MBProgressHUD */,
+				273CE74B1C76197700816E3D /* model */,
 				273CE72D1C75700C00816E3D /* AFNetworking */,
 				27381A561C58A8F400662A9A /* AppDelegate.h */,
 				27381A641C590C7400662A9A /* HMDiscoverViewController.h */,
@@ -206,6 +219,27 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		273CE74B1C76197700816E3D /* model */ = {
+			isa = PBXGroup;
+			children = (
+				273CE74C1C7619C200816E3D /* HWAccount.h */,
+				273CE74D1C7619C200816E3D /* HWAccount.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		273CE74F1C761ED200816E3D /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				273CE7501C761ED200816E3D /* MBProgressHUD+MJ.h */,
+				273CE7511C761ED200816E3D /* MBProgressHUD+MJ.m */,
+				273CE7521C761ED200816E3D /* MBProgressHUD.bundle */,
+				273CE7531C761ED200816E3D /* MBProgressHUD.h */,
+				273CE7541C761ED200816E3D /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27381A7B1C59C0DC00662A9A /* HWTest1ViewController.xib in Resources */,
+				273CE7561C761ED200816E3D /* MBProgressHUD.bundle in Resources */,
 				2738199A1C5870E600662A9A /* Assets.xcassets in Resources */,
 				27381A761C59B96300662A9A /* HWTest2ViewController.xib in Resources */,
 			);
@@ -280,9 +315,11 @@
 				27381A661C590C7400662A9A /* HMDiscoverViewController.m in Sources */,
 				27381A6C1C5911F000662A9A /* HWMainViewController.m in Sources */,
 				27381A7A1C59C0DC00662A9A /* HWTest1ViewController.m in Sources */,
+				273CE7551C761ED200816E3D /* MBProgressHUD+MJ.m in Sources */,
 				27381A691C590CA400662A9A /* HMProfileViewController.m in Sources */,
 				27381A5D1C590BDC00662A9A /* HWHomeViewController.m in Sources */,
 				273CE6E91C5B302200816E3D /* HWSeachBar.m in Sources */,
+				273CE7571C761ED200816E3D /* MBProgressHUD.m in Sources */,
 				273CE7431C75700D00816E3D /* AFHTTPSessionManager.m in Sources */,
 				27381A601C590C1000662A9A /* HMMessageViewController.m in Sources */,
 				273CE6DF1C59F73000816E3D /* UIView+UIViewExtentsion.m in Sources */,
@@ -296,6 +333,7 @@
 				273CE7471C75700D00816E3D /* AFURLRequestSerialization.m in Sources */,
 				273CE7151C707BC600816E3D /* HWNewFeatureViewController.m in Sources */,
 				273CE7181C755F8C00816E3D /* HWOAuthViewController.m in Sources */,
+				273CE74E1C7619C200816E3D /* HWAccount.m in Sources */,
 				273CE7121C705EAF00816E3D /* HWTabBar.m in Sources */,
 				273CE6E21C5A490D00816E3D /* HWNavigationViewController.m in Sources */,
 				27381A591C58A8F400662A9A /* AppDelegate.m in Sources */,

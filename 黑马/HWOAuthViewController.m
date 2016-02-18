@@ -9,6 +9,10 @@
 #import "HWOAuthViewController.h"
 #import "UIView+UIViewExtentsion.h"
 #import "AFNetworking.h"
+#import "HWMainViewController.h"
+#import "HWNewFeatureViewController.h"
+#import "HWAccount.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface HWOAuthViewController ()<UIWebViewDelegate>
 
@@ -37,12 +41,17 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    NSLog(@"webViewDidFinishLoad...");
+    [MBProgressHUD hideHUD];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    NSLog(@"load...");
+    [MBProgressHUD showMessage:@"正在加载..."];
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [MBProgressHUD hideHUD];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
@@ -70,9 +79,33 @@
     params[@"redirect_uri"] = @"http://www.baidu.com";
     
     [magr POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation , id responseObject){
+        [MBProgressHUD hideHUD];
         NSLog(@"%@" , responseObject);
+        NSString * doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        NSString * path = [doc stringByAppendingPathComponent:@"account.plist"];
+        
+        HWAccount *account = [HWAccount accountWithDict:responseObject];
+        [NSKeyedArchiver archiveRootObject:account toFile:path];
+        
+        NSString *key = @"CFBundleVersion";
+        NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+        NSString *currentVrsion = [NSBundle mainBundle].infoDictionary[key];
+
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        if ([currentVrsion isEqualToString:lastVersion]) {
+            window.rootViewController = [[HWMainViewController alloc] init];;
+        }
+        else
+        {
+            window.rootViewController = [[HWNewFeatureViewController alloc] init];
+            [[NSUserDefaults standardUserDefaults] setObject:currentVrsion forKey:key];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+
+        
     } failure:^(AFHTTPRequestOperation *operation , NSError *error)
      {
+         [MBProgressHUD hideHUD];
          NSLog(@"%@" , error);
      }];
 }

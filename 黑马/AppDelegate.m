@@ -10,6 +10,7 @@
 #import "HWMainViewController.h"
 #import "HWNewFeatureViewController.h"
 #import "HWOAuthViewController.h"
+#import "HWAccount.h"
 
 @interface AppDelegate ()
 
@@ -24,21 +25,33 @@
     self.window.frame = [UIScreen mainScreen].bounds;
     
     self.window.rootViewController = [[HWOAuthViewController alloc] init];
-    /*
+    
     NSString *key = @"CFBundleVersion";
     NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     NSString *currentVrsion = [NSBundle mainBundle].infoDictionary[key];
     
-    if ([currentVrsion isEqualToString:lastVersion]) {
-        self.window.rootViewController = self.window.rootViewController = [[HWMainViewController alloc] init];;
+    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)  lastObject];
+    NSString *path = [doc stringByAppendingPathComponent:@"account.plist"];
+    HWAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    
+    NSLog(@"%@" , account);
+    if (account) {
+        if ([currentVrsion isEqualToString:lastVersion]) {
+            self.window.rootViewController = self.window.rootViewController = [[HWMainViewController alloc] init];;
+        }
+        else
+        {
+            self.window.rootViewController = [[HWNewFeatureViewController alloc] init];
+            [[NSUserDefaults standardUserDefaults] setObject:currentVrsion forKey:key];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
     }
     else
     {
-        self.window.rootViewController = [[HWNewFeatureViewController alloc] init];
-        [[NSUserDefaults standardUserDefaults] setObject:currentVrsion forKey:key];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        self.window.rootViewController = [[HWOAuthViewController alloc] init];
     }
-    */
+
+    
     [self.window makeKeyAndVisible];
     
     
