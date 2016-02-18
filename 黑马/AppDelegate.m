@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HWMainViewController.h"
 #import "HWNewFeatureViewController.h"
+#import "HWOAuthViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,7 +23,8 @@
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    //
+    self.window.rootViewController = [[HWOAuthViewController alloc] init];
+    /*
     NSString *key = @"CFBundleVersion";
     NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     NSString *currentVrsion = [NSBundle mainBundle].infoDictionary[key];
@@ -36,7 +38,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:currentVrsion forKey:key];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    
+    */
     [self.window makeKeyAndVisible];
     
     
