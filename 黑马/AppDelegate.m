@@ -11,6 +11,7 @@
 #import "HWNewFeatureViewController.h"
 #import "HWOAuthViewController.h"
 #import "HWAccount.h"
+#import "HWAccountTool.h"
 
 @interface AppDelegate ()
 
@@ -30,9 +31,8 @@
     NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     NSString *currentVrsion = [NSBundle mainBundle].infoDictionary[key];
     
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)  lastObject];
-    NSString *path = [doc stringByAppendingPathComponent:@"account.plist"];
-    HWAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        
+    HWAccount *account = [HWAccountTool account];
     
     NSLog(@"%@" , account);
     if (account) {

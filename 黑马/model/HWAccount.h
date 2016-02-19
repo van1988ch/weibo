@@ -12,6 +12,7 @@
 @property (nonatomic , copy) NSString *access_token;
 @property (nonatomic , copy) NSString *expires_in;
 @property (nonatomic , copy) NSString *uid;
+@property (nonatomic , strong) NSDate * create_Time;
 
 +(instancetype) accountWithDict:(NSDictionary *)dict;
 

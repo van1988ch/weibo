@@ -13,6 +13,7 @@
 #import "HWNewFeatureViewController.h"
 #import "HWAccount.h"
 #import "MBProgressHUD+MJ.h"
+#import "HWAccountTool.h"
 
 @interface HWOAuthViewController ()<UIWebViewDelegate>
 
@@ -81,12 +82,9 @@
     [magr POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation , id responseObject){
         [MBProgressHUD hideHUD];
         NSLog(@"%@" , responseObject);
-        NSString * doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString * path = [doc stringByAppendingPathComponent:@"account.plist"];
-        
+
         HWAccount *account = [HWAccount accountWithDict:responseObject];
-        [NSKeyedArchiver archiveRootObject:account toFile:path];
-        
+        [HWAccountTool saveAccount:account];
         NSString *key = @"CFBundleVersion";
         NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
         NSString *currentVrsion = [NSBundle mainBundle].infoDictionary[key];

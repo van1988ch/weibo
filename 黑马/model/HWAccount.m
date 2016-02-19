@@ -15,7 +15,7 @@
     account.access_token = dict[@"access_token"];
     account.uid = dict[@"uid"];
     account.expires_in = dict[@"expires_in"];
-    
+    account.create_Time = [NSDate date];
     return account;
 }
 
@@ -24,6 +24,7 @@
     [aCoder encodeObject:self.access_token forKey:@"access_token"];
     [aCoder encodeObject:self.expires_in forKey:@"expires_in"];
     [aCoder encodeObject:self.uid forKey:@"uid"];
+    [aCoder encodeObject:self.create_Time forKey:@"create_Time"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -32,6 +33,7 @@
         self.access_token = [aDecoder decodeObjectForKey:@"access_token"];
         self.uid = [aDecoder decodeObjectForKey:@"uid"];
         self.expires_in = [aDecoder decodeObjectForKey:@"expires_in"];
+        self.create_Time = [aDecoder decodeObjectForKey:@"create_Time"];
     }
     return self;
 }
