@@ -41,6 +41,7 @@
 		273CE7561C761ED200816E3D /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 273CE7521C761ED200816E3D /* MBProgressHUD.bundle */; };
 		273CE7571C761ED200816E3D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE7541C761ED200816E3D /* MBProgressHUD.m */; };
 		273CE75A1C76B69600816E3D /* HWAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE7591C76B69600816E3D /* HWAccountTool.m */; };
+		273CE75D1C76C0DE00816E3D /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 273CE75C1C76C0DE00816E3D /* UIWindow+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,8 @@
 		273CE7541C761ED200816E3D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		273CE7581C76B69600816E3D /* HWAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAccountTool.h; sourceTree = "<group>"; };
 		273CE7591C76B69600816E3D /* HWAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAccountTool.m; sourceTree = "<group>"; };
+		273CE75B1C76C0DE00816E3D /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
+		273CE75C1C76C0DE00816E3D /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 				273CE7141C707BC600816E3D /* HWNewFeatureViewController.m */,
 				273CE7161C755F8C00816E3D /* HWOAuthViewController.h */,
 				273CE7171C755F8C00816E3D /* HWOAuthViewController.m */,
+				273CE75B1C76C0DE00816E3D /* UIWindow+Extension.h */,
+				273CE75C1C76C0DE00816E3D /* UIWindow+Extension.m */,
 			);
 			path = "黑马";
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				27381A7A1C59C0DC00662A9A /* HWTest1ViewController.m in Sources */,
 				273CE7551C761ED200816E3D /* MBProgressHUD+MJ.m in Sources */,
 				27381A691C590CA400662A9A /* HMProfileViewController.m in Sources */,
+				273CE75D1C76C0DE00816E3D /* UIWindow+Extension.m in Sources */,
 				27381A5D1C590BDC00662A9A /* HWHomeViewController.m in Sources */,
 				273CE6E91C5B302200816E3D /* HWSeachBar.m in Sources */,
 				273CE7571C761ED200816E3D /* MBProgressHUD.m in Sources */,

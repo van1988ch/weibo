@@ -7,12 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "HWMainViewController.h"
-#import "HWNewFeatureViewController.h"
 #import "HWOAuthViewController.h"
 #import "HWAccount.h"
 #import "HWAccountTool.h"
-
+#import "UIWindow+Extension.h"
 @interface AppDelegate ()
 
 @end
@@ -24,36 +22,18 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
-    
-    self.window.rootViewController = [[HWOAuthViewController alloc] init];
-    
-    NSString *key = @"CFBundleVersion";
-    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
-    NSString *currentVrsion = [NSBundle mainBundle].infoDictionary[key];
-    
+    [self.window makeKeyAndVisible];
         
     HWAccount *account = [HWAccountTool account];
     
     NSLog(@"%@" , account);
     if (account) {
-        if ([currentVrsion isEqualToString:lastVersion]) {
-            self.window.rootViewController = self.window.rootViewController = [[HWMainViewController alloc] init];;
-        }
-        else
-        {
-            self.window.rootViewController = [[HWNewFeatureViewController alloc] init];
-            [[NSUserDefaults standardUserDefaults] setObject:currentVrsion forKey:key];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }
+        [UIWindow switchRootViewController];
     }
     else
     {
         self.window.rootViewController = [[HWOAuthViewController alloc] init];
     }
-
-    
-    [self.window makeKeyAndVisible];
-    
     
     return YES;
 }

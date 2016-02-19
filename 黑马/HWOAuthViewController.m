@@ -14,6 +14,7 @@
 #import "HWAccount.h"
 #import "MBProgressHUD+MJ.h"
 #import "HWAccountTool.h"
+#import "UIWindow+Extension.h"
 
 @interface HWOAuthViewController ()<UIWebViewDelegate>
 
@@ -85,21 +86,7 @@
 
         HWAccount *account = [HWAccount accountWithDict:responseObject];
         [HWAccountTool saveAccount:account];
-        NSString *key = @"CFBundleVersion";
-        NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
-        NSString *currentVrsion = [NSBundle mainBundle].infoDictionary[key];
-
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        if ([currentVrsion isEqualToString:lastVersion]) {
-            window.rootViewController = [[HWMainViewController alloc] init];;
-        }
-        else
-        {
-            window.rootViewController = [[HWNewFeatureViewController alloc] init];
-            [[NSUserDefaults standardUserDefaults] setObject:currentVrsion forKey:key];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }
-
+        [UIWindow switchRootViewController];
         
     } failure:^(AFHTTPRequestOperation *operation , NSError *error)
      {
