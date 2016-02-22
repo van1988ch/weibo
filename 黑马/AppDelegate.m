@@ -11,6 +11,7 @@
 #import "HWAccount.h"
 #import "HWAccountTool.h"
 #import "UIWindow+Extension.h"
+#import "SDWebImageManager.h"
 @interface AppDelegate ()
 
 @end
@@ -62,4 +63,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    SDWebImageManager * mgr = [SDWebImageManager sharedManager];
+    [mgr cancelAll];
+    
+    [mgr.imageCache clearMemory];
+}
 @end

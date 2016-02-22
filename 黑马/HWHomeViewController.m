@@ -10,38 +10,83 @@
 #import "HWItemTool.h"
 #include "UIView+UIViewExtentsion.h"
 #import "HWDropdownMenu.h"
+#import "AFNetworking.h"
+#import "HWAccountTool.h"
+#import "HWAccount.h"
+#import "HWTitleButton.h"
+#import "UIImageView+WebCache.h"
 
 #define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0  alpha:1.0];
 #define HWColor(r , g , b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
 
-@interface HWHomeViewController ()
 
+@interface HWHomeViewController ()
+@property (nonatomic , strong) NSArray * statuses;
 @end
 
 @implementation HWHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadNav];
+    [self loadAccount];
+    [self loadNewStaus];
     
+}
+
+-(void)loadNewStaus
+{
+    AFHTTPRequestOperationManager *magr = [AFHTTPRequestOperationManager manager];
+    HWAccount *account = [HWAccountTool account];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = account.access_token;
+    
+    [magr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation , id responseObject){
+        self.statuses = responseObject[@"statuses"];
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation , NSError *error)
+     {
+         NSLog(@"%@" , error);
+     }];
+}
+
+- (void)loadAccount
+{
+    AFHTTPRequestOperationManager *magr = [AFHTTPRequestOperationManager manager];
+    HWAccount *account = [HWAccountTool account];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = account.access_token;
+    params[@"uid"] = account.uid;
+    
+    [magr GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation , id responseObject){
+        //NSLog(@"%@" , responseObject);
+        HWTitleButton * titleButton = (HWTitleButton *)self.navigationItem.titleView;
+        NSString * name = responseObject[@"name"];
+        [titleButton setTitle:name forState:UIControlStateNormal];
+        
+        account.name = responseObject[@"name"];
+        [HWAccountTool saveAccount:account];
+        
+    } failure:^(AFHTTPRequestOperation *operation , NSError *error)
+     {
+         NSLog(@"%@" , error);
+     }];
+}
+
+- (void)loadNav
+{
     self.navigationItem.leftBarButtonItem =  [HWItemTool itemWithTarget:self action:@selector(friendSeacher) image:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted"];
     self.navigationItem.rightBarButtonItem =  [HWItemTool itemWithTarget:self action:@selector(friendSeacher) image:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted"];
-   // UIButton *titleButton = [[UIButton alloc] init];
-    UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    titleButton.width = 150;
-    titleButton.height = 30;
-    //titleButton.backgroundColor= RandomColor;
-    [titleButton setTitle:@"首页" forState:UIControlStateNormal];
-    [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    titleButton.titleLabel.font = [UIFont boldSystemFontOfSize:17];
-    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-    //titleButton.imageView.backgroundColor =RandomColor;
-    //titleButton.titleLabel.backgroundColor = RandomColor;
-    titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, 70, 0, 0);
-    titleButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
+    
+    HWTitleButton * titleButton = [[HWTitleButton alloc] init];
+    NSString *account = [HWAccountTool account].name;
+    [titleButton setTitle:account?account:@"首页" forState:UIControlStateNormal];
+
     [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleButton;
-    
 }
 
 - (void)titleClick:(UIButton*)titleButton {
@@ -57,27 +102,36 @@
    
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.statuses.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
     // Configure the cell...
     
+    static NSString *id = @"status";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:id];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:id];
+    }
+    
+    
+    
+    NSDictionary * status = self.statuses[indexPath.row];
+    NSDictionary * user = status[@"user"];
+    NSString *imageUrl = user[@"profile_image_url"];
+    
+    cell.textLabel.text = user[@"name"];
+    cell.detailTextLabel.text =status[@"text"];
+    UIImage *placehoder = [UIImage imageNamed:@"avatar_default_small"];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:placehoder];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
