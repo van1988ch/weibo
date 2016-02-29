@@ -15,6 +15,10 @@
 #import "HWAccount.h"
 #import "HWTitleButton.h"
 #import "UIImageView+WebCache.h"
+#import "HWUser.h"
+#import "HWStatus.h"
+#import "HWUser.h"
+
 
 #define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0  alpha:1.0];
 #define HWColor(r , g , b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
@@ -22,7 +26,7 @@
 
 
 @interface HWHomeViewController ()
-@property (nonatomic , strong) NSArray * statuses;
+@property (nonatomic , strong) NSMutableArray * statuses;
 @end
 
 @implementation HWHomeViewController
@@ -35,6 +39,15 @@
     
 }
 
+
+-(NSMutableArray *)statuses
+{
+    if (!_statuses) {
+        self.statuses = [NSMutableArray array];
+    }
+    return _statuses;
+}
+
 -(void)loadNewStaus
 {
     AFHTTPRequestOperationManager *magr = [AFHTTPRequestOperationManager manager];
@@ -44,7 +57,11 @@
     params[@"access_token"] = account.access_token;
     
     [magr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation , id responseObject){
-        self.statuses = responseObject[@"statuses"];
+        NSArray *dictArray = responseObject[@"statuses"];
+        for (NSDictionary *dict in dictArray) {
+            HWStatus * status = [HWStatus statusWirhDict:dict];
+            [self.statuses addObject:status];
+        }
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation , NSError *error)
      {
@@ -64,10 +81,11 @@
     [magr GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation , id responseObject){
         //NSLog(@"%@" , responseObject);
         HWTitleButton * titleButton = (HWTitleButton *)self.navigationItem.titleView;
-        NSString * name = responseObject[@"name"];
-        [titleButton setTitle:name forState:UIControlStateNormal];
+        //NSString * name = responseObject[@"name"];
+        HWUser *user = [HWUser userWirhDict:responseObject];
+        [titleButton setTitle:user.name forState:UIControlStateNormal];
         
-        account.name = responseObject[@"name"];
+        account.name = user.name;
         [HWAccountTool saveAccount:account];
         
     } failure:^(AFHTTPRequestOperation *operation , NSError *error)
@@ -120,15 +138,14 @@
     }
     
     
+    HWStatus *status =  self.statuses[indexPath.row];
+    HWUser *user = status.user;
     
-    NSDictionary * status = self.statuses[indexPath.row];
-    NSDictionary * user = status[@"user"];
-    NSString *imageUrl = user[@"profile_image_url"];
     
-    cell.textLabel.text = user[@"name"];
-    cell.detailTextLabel.text =status[@"text"];
+    cell.textLabel.text = user.name;
+    cell.detailTextLabel.text =status.text;
     UIImage *placehoder = [UIImage imageNamed:@"avatar_default_small"];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:placehoder];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:placehoder];
     return cell;
 }
 

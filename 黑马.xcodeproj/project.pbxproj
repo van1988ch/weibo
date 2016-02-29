@@ -24,6 +24,8 @@
 		2701BBFD1C7B653800C97EBB /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2701BBEB1C7B653800C97EBB /* UIImageView+HighlightedWebCache.m */; };
 		2701BBFE1C7B653800C97EBB /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2701BBED1C7B653800C97EBB /* UIImageView+WebCache.m */; };
 		2701BBFF1C7B653800C97EBB /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2701BBEF1C7B653800C97EBB /* UIView+WebCacheOperation.m */; };
+		2701BC021C83F5EF00C97EBB /* HWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2701BC011C83F5EF00C97EBB /* HWUser.m */; };
+		2701BC051C83F62800C97EBB /* HWStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2701BC041C83F62800C97EBB /* HWStatus.m */; };
 		2738199A1C5870E600662A9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 273819991C5870E600662A9A /* Assets.xcassets */; };
 		27381A591C58A8F400662A9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27381A571C58A8F400662A9A /* AppDelegate.m */; };
 		27381A5A1C58A8F400662A9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27381A581C58A8F400662A9A /* main.m */; };
@@ -97,6 +99,10 @@
 		2701BBED1C7B653800C97EBB /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		2701BBEE1C7B653800C97EBB /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		2701BBEF1C7B653800C97EBB /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		2701BC001C83F5EF00C97EBB /* HWUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWUser.h; sourceTree = "<group>"; };
+		2701BC011C83F5EF00C97EBB /* HWUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWUser.m; sourceTree = "<group>"; };
+		2701BC031C83F62800C97EBB /* HWStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWStatus.h; sourceTree = "<group>"; };
+		2701BC041C83F62800C97EBB /* HWStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStatus.m; sourceTree = "<group>"; };
 		2738198A1C5870E500662A9A /* 黑马.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "黑马.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		273819991C5870E600662A9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2738199E1C5870E600662A9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -329,6 +335,10 @@
 				273CE74D1C7619C200816E3D /* HWAccount.m */,
 				273CE7581C76B69600816E3D /* HWAccountTool.h */,
 				273CE7591C76B69600816E3D /* HWAccountTool.m */,
+				2701BC001C83F5EF00C97EBB /* HWUser.h */,
+				2701BC011C83F5EF00C97EBB /* HWUser.m */,
+				2701BC031C83F62800C97EBB /* HWStatus.h */,
+				2701BC041C83F62800C97EBB /* HWStatus.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -442,6 +452,7 @@
 				273CE6DF1C59F73000816E3D /* UIView+UIViewExtentsion.m in Sources */,
 				273CE7441C75700D00816E3D /* AFNetworkReachabilityManager.m in Sources */,
 				273CE7491C75700D00816E3D /* AFURLSessionManager.m in Sources */,
+				2701BC051C83F62800C97EBB /* HWStatus.m in Sources */,
 				273CE6EC1C60498300816E3D /* HWDropdownMenu.m in Sources */,
 				27381A751C59B96300662A9A /* HWTest2ViewController.m in Sources */,
 				2701BBFF1C7B653800C97EBB /* UIView+WebCacheOperation.m in Sources */,
@@ -462,6 +473,7 @@
 				27381A591C58A8F400662A9A /* AppDelegate.m in Sources */,
 				273CE7421C75700D00816E3D /* AFHTTPRequestOperationManager.m in Sources */,
 				273CE7451C75700D00816E3D /* AFSecurityPolicy.m in Sources */,
+				2701BC021C83F5EF00C97EBB /* HWUser.m in Sources */,
 				273CE6E51C5A591700816E3D /* HWItemTool.m in Sources */,
 				2701BBF21C7B653800C97EBB /* SDImageCache.m in Sources */,
 			);
