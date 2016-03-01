@@ -26,6 +26,8 @@
 		2701BBFF1C7B653800C97EBB /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2701BBEF1C7B653800C97EBB /* UIView+WebCacheOperation.m */; };
 		2701BC021C83F5EF00C97EBB /* HWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2701BC011C83F5EF00C97EBB /* HWUser.m */; };
 		2701BC051C83F62800C97EBB /* HWStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2701BC041C83F62800C97EBB /* HWStatus.m */; };
+		2701BC081C857A5200C97EBB /* HWLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2701BC071C857A5200C97EBB /* HWLoadMoreFooter.m */; };
+		2701BC0A1C857AAB00C97EBB /* HWLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2701BC091C857AAB00C97EBB /* HWLoadMoreFooter.xib */; };
 		2738199A1C5870E600662A9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 273819991C5870E600662A9A /* Assets.xcassets */; };
 		27381A591C58A8F400662A9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27381A571C58A8F400662A9A /* AppDelegate.m */; };
 		27381A5A1C58A8F400662A9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27381A581C58A8F400662A9A /* main.m */; };
@@ -103,6 +105,9 @@
 		2701BC011C83F5EF00C97EBB /* HWUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWUser.m; sourceTree = "<group>"; };
 		2701BC031C83F62800C97EBB /* HWStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWStatus.h; sourceTree = "<group>"; };
 		2701BC041C83F62800C97EBB /* HWStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStatus.m; sourceTree = "<group>"; };
+		2701BC061C857A5200C97EBB /* HWLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWLoadMoreFooter.h; sourceTree = "<group>"; };
+		2701BC071C857A5200C97EBB /* HWLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWLoadMoreFooter.m; sourceTree = "<group>"; };
+		2701BC091C857AAB00C97EBB /* HWLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWLoadMoreFooter.xib; sourceTree = "<group>"; };
 		2738198A1C5870E500662A9A /* 黑马.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "黑马.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		273819991C5870E600662A9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2738199E1C5870E600662A9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -290,6 +295,9 @@
 				273CE75C1C76C0DE00816E3D /* UIWindow+Extension.m */,
 				2701BBCB1C7AB31900C97EBB /* HWTitleButton.h */,
 				2701BBCC1C7AB31900C97EBB /* HWTitleButton.m */,
+				2701BC061C857A5200C97EBB /* HWLoadMoreFooter.h */,
+				2701BC071C857A5200C97EBB /* HWLoadMoreFooter.m */,
+				2701BC091C857AAB00C97EBB /* HWLoadMoreFooter.xib */,
 			);
 			path = "黑马";
 			sourceTree = "<group>";
@@ -414,6 +422,7 @@
 			files = (
 				27381A7B1C59C0DC00662A9A /* HWTest1ViewController.xib in Resources */,
 				273CE7561C761ED200816E3D /* MBProgressHUD.bundle in Resources */,
+				2701BC0A1C857AAB00C97EBB /* HWLoadMoreFooter.xib in Resources */,
 				2738199A1C5870E600662A9A /* Assets.xcassets in Resources */,
 				27381A761C59B96300662A9A /* HWTest2ViewController.xib in Resources */,
 			);
@@ -464,6 +473,7 @@
 				2701BBF01C7B653800C97EBB /* MKAnnotationView+WebCache.m in Sources */,
 				2701BBFB1C7B653800C97EBB /* UIImage+MultiFormat.m in Sources */,
 				273CE7151C707BC600816E3D /* HWNewFeatureViewController.m in Sources */,
+				2701BC081C857A5200C97EBB /* HWLoadMoreFooter.m in Sources */,
 				273CE7181C755F8C00816E3D /* HWOAuthViewController.m in Sources */,
 				2701BBF11C7B653800C97EBB /* NSData+ImageContentType.m in Sources */,
 				273CE74E1C7619C200816E3D /* HWAccount.m in Sources */,

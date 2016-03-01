@@ -18,6 +18,7 @@
 #import "HWUser.h"
 #import "HWStatus.h"
 #import "HWUser.h"
+#import "HWLoadMoreFooter.h"
 
 
 #define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0  alpha:1.0];
@@ -36,7 +37,8 @@
     [self loadNav];
     [self loadAccount];
     //[self loadNewStaus];
-    [self setupRefresh];
+    [self setupDownRefresh];
+    [self setupUpRefresh];
 }
 
 
@@ -48,8 +50,12 @@
     return _statuses;
 }
 
+-(void)setupUpRefresh
+{
+    self.tableView.tableFooterView = [HWLoadMoreFooter footer];
+}
 
--(void)setupRefresh
+-(void)setupDownRefresh
 {
     UIRefreshControl *control = [[UIRefreshControl alloc] init];
     [control addTarget:self action:@selector(refreshStateChange:) forControlEvents:UIControlEventValueChanged];
