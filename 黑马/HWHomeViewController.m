@@ -35,8 +35,8 @@
     [super viewDidLoad];
     [self loadNav];
     [self loadAccount];
-    [self loadNewStaus];
-    
+    //[self loadNewStaus];
+    [self setupRefresh];
 }
 
 
@@ -46,6 +46,85 @@
         self.statuses = [NSMutableArray array];
     }
     return _statuses;
+}
+
+
+-(void)setupRefresh
+{
+    UIRefreshControl *control = [[UIRefreshControl alloc] init];
+    [control addTarget:self action:@selector(refreshStateChange:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:control];
+    
+    [control beginRefreshing];
+    [self refreshStateChange:control];
+}
+
+-(void)refreshStateChange:(UIRefreshControl*)control
+{
+    NSLog(@"refresh");
+    AFHTTPRequestOperationManager *magr = [AFHTTPRequestOperationManager manager];
+    HWAccount *account = [HWAccountTool account];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = account.access_token;
+    HWStatus *firstStatus = [self.statuses firstObject];
+    if (firstStatus) {
+        params[@"since_id"] = firstStatus.idstr;
+    }
+    
+    [magr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation , id responseObject){
+        NSArray *dictArray = responseObject[@"statuses"];
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for (NSDictionary *dict in dictArray) {
+            HWStatus * status = [HWStatus statusWirhDict:dict];
+            [arr addObject:status];
+        }
+        NSRange range = NSMakeRange(0, arr.count);
+        NSIndexSet* set = [NSIndexSet indexSetWithIndexesInRange:range];
+        [self.statuses insertObjects:arr atIndexes:set];
+        
+        [self.tableView reloadData];
+        [control endRefreshing];
+        
+        [self showNewStatusCount:arr.count];
+        
+    } failure:^(AFHTTPRequestOperation *operation , NSError *error)
+     {
+         NSLog(@"%@" , error);
+         [control endRefreshing];
+     }];
+}
+
+-(void)showNewStatusCount:(int)count
+{
+    UILabel *label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
+    label.width = [UIScreen mainScreen].bounds.size.width;
+    label.height = 35;
+    
+    if (count == 0) {
+        label.text = [NSString stringWithFormat:@"没有微博，稍后再试"];
+    }else
+    {
+        label.text = [NSString stringWithFormat:@"共有%d条微博" , count];
+    }
+    
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:16];
+    label.y = 64-label.height;
+    label.textAlignment = NSTextAlignmentCenter;
+    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        label.y += label.height;
+    } completion:^(BOOL finished) {
+        CGFloat delay = 1.0;
+        [UIView animateWithDuration:1.0 delay:delay options:UIViewAnimationOptionCurveLinear animations:^{
+            label.y -= label.height;
+        } completion:^(BOOL finished) {
+            [label removeFromSuperview];
+        }];
+    }];
 }
 
 -(void)loadNewStaus
